@@ -40,7 +40,7 @@
       </Button>
       <ImageView fitHeight="354.0" fitWidth="213.0" layoutX="300.0" pickOnBounds="true">
          <image>
-            <Image url="@../assets/lg.jpg" />
+            <Image url="@../assets/LF.jpg" />
          </image>
       </ImageView>
    </children>
