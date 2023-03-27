@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="354.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.shototechnologies.edumange.controller.LoginFormController">
+   <children>
+      <Label layoutX="29.0" layoutY="21.0" text="Login" textFill="#0007e0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Separator layoutX="29.0" layoutY="44.0" prefHeight="4.0" prefWidth="251.0" />
+      <TextField layoutX="29.0" layoutY="71.0" prefHeight="25.0" prefWidth="251.0" promptText="email" />
+      <PasswordField layoutX="29.0" layoutY="116.0" prefHeight="25.0" prefWidth="251.0" promptText="Password" />
+      <Button layoutX="29.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="251.0" style="-fx-background-color: #0696FF;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Hyperlink layoutX="177.0" layoutY="153.0" text="Forgot password?" />
+      <Label layoutX="143.0" layoutY="249.0" text="OR" textFill="#0007e0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="29.0" layoutY="282.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="251.0" style="-fx-background-color: #1A2277;" text="Create an account" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="354.0" fitWidth="213.0" layoutX="300.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/lg.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
