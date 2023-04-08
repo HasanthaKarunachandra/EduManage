@@ -2,6 +2,7 @@ package com.shototechnologies.edumange.controller;
 
 import com.shototechnologies.edumange.db.Database;
 import com.shototechnologies.edumange.model.User;
+import com.shototechnologies.edumange.util.security.PasswordManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +25,7 @@ public class SignupFormController {
         String email = txtEmail.getText().toLowerCase();
         String firstname=txtFirstname.getText();
         String lastName=txtLastname.getText();
-        String password= txtPassword.getText().trim();
+        String password= new PasswordManager().encrypt(txtPassword.getText().trim());
         Database.userTable.add(
                 new User(firstname,lastName,email,password)
         );

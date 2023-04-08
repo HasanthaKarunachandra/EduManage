@@ -2,6 +2,7 @@ package com.shototechnologies.edumange.controller;
 
 import com.shototechnologies.edumange.db.Database;
 import com.shototechnologies.edumange.model.User;
+import com.shototechnologies.edumange.util.security.PasswordManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,14 +21,15 @@ public class LoginFormController {
     public TextField txtEmail;
     public PasswordField txtPassword;
 
-    public void loginOnAction(ActionEvent actionEvent) {
+    public void loginOnAction(ActionEvent actionEvent) throws IOException {
         String email=txtEmail.getText().toLowerCase();
         String password=txtPassword.getText().trim();
 
         Optional<User>selectedUser= Database.userTable.stream().filter(e->e.getEmail().equals(email)).findFirst();
         if (selectedUser.isPresent()){
-            if(selectedUser.get().getPassword().equals(password)){
+            if(new PasswordManager().checkPassword(password,selectedUser.get().getPassword())){
                 System.out.println(selectedUser.get().toString());
+                setUi("DashboardForm");
             }else{
                 new Alert(Alert.AlertType.ERROR,
                         "Wrong Password!").show();
