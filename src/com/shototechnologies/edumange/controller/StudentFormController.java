@@ -2,13 +2,22 @@ package com.shototechnologies.edumange.controller;
 
 import com.shototechnologies.edumange.db.Database;
 import com.shototechnologies.edumange.model.Student;
+import com.shototechnologies.edumange.view.tm.StudentTm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class StudentFormController {
@@ -17,9 +26,52 @@ public class StudentFormController {
     public TextField txtName;
     public DatePicker txtDob;
     public TextField txtAddress;
+    public TableView<StudentTm> tblStudent;
+    public TableColumn colId;
+    public TableColumn colName;
+    public TableColumn colDob;
+    public TableColumn colAddress;
+    public TableColumn colOptions;
 
     public void initialize(){
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        colOptions.setCellValueFactory(new PropertyValueFactory<>("btn"));
+
         setStudentId();
+        setTableData();
+
+        tblStudent.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((observable, oldValue, newValue) ->{
+            setData(newValue);
+        } );
+    }
+
+    private void setData(StudentTm tm) {
+        txtId.setText(tm.getId());
+        txtName.setText(tm.getFullName());
+        txtAddress.setText(tm.getAddress());
+        txtDob.setValue(LocalDate.parse(tm.getDob(), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+    }
+
+    private void setTableData() {
+        ObservableList<StudentTm> obList= FXCollections.observableArrayList();
+        for (Student st:Database.studentTable
+             ) {
+            Button btn= new Button("Delete");
+            StudentTm tm =new StudentTm(
+                    st.getStudentId(),
+                    st.getFullName(),
+                    new SimpleDateFormat("yyyy-MM-dd").format(st.getDateOfBirth()),
+                    st.getAddress(),
+                    btn
+            );
+            obList.add(tm);
+        }
+        tblStudent.setItems(obList);
     }
 
     private void setStudentId() {
@@ -51,11 +103,23 @@ public class StudentFormController {
         Database.studentTable.add(student);
         setStudentId();
         clear();
+        setTableData();
         new Alert(Alert.AlertType.INFORMATION,"Student saved!").show();
     }
     private void  clear(){
         txtName.clear();
         txtDob.setValue(null);
         txtAddress.clear();
+    }
+
+    public void backToHomeOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("DashboardForm");
+    }
+    private void setUi(String location) throws IOException {
+        Stage stage = (Stage) context.getScene().getWindow();
+        stage.setScene(
+                new Scene(FXMLLoader.load(getClass().getResource("../view/"+location+".fxml"))));
+        stage.centerOnScreen();
+
     }
 }
