@@ -24,7 +24,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="390.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #0084F2;" text="+ New Student" textFill="WHITE">
+      <Button layoutX="390.0" layoutY="19.0" mnemonicParsing="false" onAction="#newStudentOnAction" style="-fx-background-color: #0084F2;" text="+ New Student" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -33,8 +33,8 @@
       <TextField fx:id="txtName" layoutX="159.0" layoutY="70.0" prefHeight="25.0" prefWidth="113.0" promptText="Full Name" />
       <DatePicker fx:id="txtDob" layoutX="283.0" layoutY="70.0" prefHeight="25.0" prefWidth="138.0" promptText="Date of brith" />
       <TextField fx:id="txtAddress" layoutX="430.0" layoutY="70.0" prefHeight="25.0" prefWidth="150.0" promptText="Address" />
-      <TextField layoutX="39.0" layoutY="107.0" prefHeight="25.0" prefWidth="385.0" promptText="Search here" />
-      <Button layoutX="450.0" layoutY="107.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #0084F2;" text="Save Student" textFill="WHITE">
+      <TextField fx:id="txtSearch" layoutX="39.0" layoutY="107.0" prefHeight="25.0" prefWidth="385.0" promptText="Search here" />
+      <Button fx:id="btn" layoutX="450.0" layoutY="107.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #0084F2;" text="Save Student" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
