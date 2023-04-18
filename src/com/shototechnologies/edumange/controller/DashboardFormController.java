@@ -62,7 +62,8 @@ public class DashboardFormController {
     public void intakesOnAction(ActionEvent actionEvent) {
     }
 
-    public void teachersOnAction(ActionEvent actionEvent) {
+    public void teachersOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("TeacherForm");
     }
 
     private void setUi(String location) throws IOException {

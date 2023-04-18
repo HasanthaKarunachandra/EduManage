@@ -1,22 +1,26 @@
-package com.shototechnologies.edumange.model;
+package com.shototechnologies.edumange.view.tm;
 
-public class Teacher {
+
+import javafx.scene.control.Button;
+
+public class TeacherTm {
     private String code;
     private String name;
-
-    private String address;
     private String contact;
 
-    public Teacher() {
+    private String address;
+    private Button btn;
+
+    public TeacherTm() {
     }
-    public Teacher(String code, String name, String address, String contact) {
+
+    public TeacherTm(String code, String name, String contact, String address, Button btn) {
         this.code = code;
         this.name = name;
-        this.address = address;
         this.contact = contact;
+        this.address = address;
+        this.btn = btn;
     }
-
-
 
     public String getCode() {
         return code;
@@ -34,14 +38,6 @@ public class Teacher {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getContact() {
         return contact;
     }
@@ -50,13 +46,30 @@ public class Teacher {
         this.contact = contact;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Button getBtn() {
+        return btn;
+    }
+
+    public void setBtn(Button btn) {
+        this.btn = btn;
+    }
+
     @Override
     public String toString() {
-        return "Teacher{" +
+        return "TeacherTm{" +
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
                 ", contact='" + contact + '\'' +
+                ", address='" + address + '\'' +
+                ", btn=" + btn +
                 '}';
     }
 }
