@@ -56,7 +56,8 @@ public class DashboardFormController {
         setUi("LoginForm");
     }
 
-    public void programeOnAction(ActionEvent actionEvent) {
+    public void programeOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("ProgramsForm");
     }
 
     public void intakesOnAction(ActionEvent actionEvent) {

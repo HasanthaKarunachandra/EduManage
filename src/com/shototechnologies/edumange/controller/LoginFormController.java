@@ -40,7 +40,8 @@ public class LoginFormController {
         }
     }
 
-    public void forgotPasswordOnAction(ActionEvent actionEvent) {
+    public void forgotPasswordOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("ForgotPasswordForm");
     }
 
     public void createAnAccountOnAction(ActionEvent actionEvent) throws IOException {
