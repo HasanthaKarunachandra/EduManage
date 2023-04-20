@@ -34,14 +34,14 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onAction="#singUpOnAction" prefHeight="108.0" prefWidth="104.0" style="-fx-background-color: #0696FF;" text="Sign up" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+<!--      <Button layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onAction="#singUpOnAction" prefHeight="108.0" prefWidth="104.0" style="-fx-background-color: #0696FF;" text="Sign up" textFill="WHITE">-->
+<!--         <font>-->
+<!--            <Font name="System Bold" size="14.0" />-->
+<!--         </font>-->
+<!--         <cursor>-->
+<!--            <Cursor fx:constant="HAND" />-->
+<!--         </cursor>-->
+<!--      </Button>-->
       <Button layoutX="451.0" layoutY="12.0" mnemonicParsing="false" onAction="#logOutOnAction" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #1A2277;" text="Logout" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />

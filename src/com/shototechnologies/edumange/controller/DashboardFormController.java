@@ -46,11 +46,11 @@ public class DashboardFormController {
     }
 
 
-    public void registrationOnAction(ActionEvent actionEvent) {
+    public void registrationOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("RegistrationForm");
     }
 
-    public void singUpOnAction(ActionEvent actionEvent) {
-    }
+
 
     public void logOutOnAction(ActionEvent actionEvent) throws IOException {
         setUi("LoginForm");
@@ -60,7 +60,8 @@ public class DashboardFormController {
         setUi("ProgramsForm");
     }
 
-    public void intakesOnAction(ActionEvent actionEvent) {
+    public void intakesOnAction(ActionEvent actionEvent) throws IOException {
+        setUi("IntakeForm");
     }
 
     public void teachersOnAction(ActionEvent actionEvent) throws IOException {
